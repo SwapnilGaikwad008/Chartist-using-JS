@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.3.0/Chart.bundle.js"></script>    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">    
+    <title>My Chartjs</title>
+</head>
+<body>
+    <div class="container">
+        <canvas id="myChart">
+
+        </canvas>
+         
+    </div>
+
+    <script>
+    var myChart = document.getElementById('myChart').getContext('2d');
+
+    //Global Options
+    Chart.defaults.global.defaultFontFamily='Lato';
+    Chart.defaults.global.defaultFontSize=10;
+    Chart.defaults.global.defaultFontColor='Black';
+
+    var massPopChart = new Chart(myChart,{
+        type:'doughnut', //v=bar,horizontalBar,pie,doughnut,radar,polarArea
+        data:{
+            labels:['Hindus','Muslims','Buddhists','Jains','Christians','Sikhs'],
+            datasets:[{
+                label:'population',
+                data:[
+                    67.39,
+                    18.56,
+                    5.22,
+                    3.99,
+                    4.2,
+                    0.58
+                ],
+               // backgroundColor:'green';
+               backgroundColor:[
+               'rgba(0,255,255)',
+               'rgba(128,0,128)',
+               'rgba(0,0,255)',
+               'rgba(255,0,255)',
+               'rgba(128,128,128)',	
+               'rgba(255,0,0)',
+               ],
+               borderWidth:1,
+               borderColor:'#777',
+               hoverBorderColor:"#000"
+
+            }]
+            },
+       options:{
+           title:{
+               display:true,
+               text:'Mumbai City Population',
+               fontSize:25
+           },
+           legend:{
+               postion:'right',
+          //     display:false,
+               labels:{
+                   fontColor:'Black'
+               }
+           },
+           layout:{
+               paddding:{
+                   left:50,
+                   right:0,
+                   bottom:0,
+                   top:0
+               }
+           },
+           tooltips:{
+               enabled:true,
+           }
+       } 
+    });
+    </script>
+</body>
+</html>
